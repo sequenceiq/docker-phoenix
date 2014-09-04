@@ -12,8 +12,8 @@ Apache HBase - 0.98.5
 Apache Phoenix - 4.1.0-incubating-SNAPSHOT
 
 ###Launch
-docker run -it sequenceiq/phoenix:v4.1onHbase-0.98.5 -> to normal launch
+`docker run -it sequenceiq/phoenix:v4.1onHbase-0.98.5` -> to normal launch
 
 ###Alternative launch
-docker run -it sequenceiq/phoenix:v4.1onHbase-0.98.5 /etc/bootstrap-phoenix.sh -sqlline -> to launch directly the sqlline for phoenix
+`docker run -it sequenceiq/phoenix:v4.1onHbase-0.98.5 /etc/bootstrap-phoenix.sh -sqlline` -> to launch directly the sqlline for phoenix
 
