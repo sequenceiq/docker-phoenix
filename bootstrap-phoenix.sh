@@ -23,3 +23,7 @@ fi
 if [[ $1 == "-bash" ]]; then
   /bin/bash
 fi
+
+if [[ $1 == "-sqlline" ]]; then
+  /usr/local/phoenix/bin/sqlline.py localhost
+fi

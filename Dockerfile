@@ -1,9 +1,9 @@
-FROM sequenceiq/hadoop-docker
+FROM sequenceiq/hadoop-docker:2.5.0
 MAINTAINER SequenceIQ
 
 # hbase
-RUN curl -s http://xenia.sote.hu/ftp/mirrors/www.apache.org/hbase/hbase-0.98.1/hbase-0.98.1-hadoop2-bin.tar.gz | tar -xz -C /usr/local/
-RUN cd /usr/local && ln -s ./hbase-0.98.1-hadoop2 hbase
+RUN curl -s http://xenia.sote.hu/ftp/mirrors/www.apache.org/hbase/hbase-0.98.5/hbase-0.98.5-hadoop2-bin.tar.gz | tar -xz -C /usr/local/
+RUN cd /usr/local && ln -s ./hbase-0.98.5-hadoop2 hbase
 ENV HBASE_HOME /usr/local/hbase
 ENV PATH $PATH:$HBASE_HOME/bin
 RUN rm $HBASE_HOME/conf/hbase-site.xml
