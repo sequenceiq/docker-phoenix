@@ -18,9 +18,9 @@ RUN mv $ZOO_HOME/conf/zoo_sample.cfg $ZOO_HOME/conf/zoo.cfg
 RUN mkdir /tmp/zookeeper
 
 # phoenix
-RUN curl -s https://s3-eu-west-1.amazonaws.com/seq-phoenix/phoenix-4.1.0-incubating-SNAPSHOT.tar.gz | tar -xz -C /usr/local/
-RUN cd /usr/local && ln -s ./phoenix-4.1.0-incubating-SNAPSHOT phoenix
-RUN cp /usr/local/phoenix-4.1.0-incubating-SNAPSHOT/phoenix-4.1.0-incubating-SNAPSHOT-client.jar $HBASE_HOME/lib/
+RUN curl -s http://xenia.sote.hu/ftp/mirrors/www.apache.org/phoenix/phoenix-4.1.0/bin/phoenix-4.1.0-bin.tar.gz | tar -xz -C /usr/local/
+RUN cd /usr/local && ln -s ./phoenix-4.1.0-bin phoenix
+RUN cp /usr/local/phoenix-4.1.0-bin/hadoop2/phoenix-4.1.0-client-hadoop2.jar $HBASE_HOME/lib/
 
 # bootstrap-phoenix
 ADD bootstrap-phoenix.sh /etc/bootstrap-phoenix.sh
