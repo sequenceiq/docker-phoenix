@@ -1,4 +1,4 @@
-phoenix-docker
+docker-phoenix
 ==============
 
 A Docker image to quick start [Apache Phoenix](http://phoenix.apache.org/) on [Apache HBase](https://hbase.apache.org/)
