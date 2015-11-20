@@ -14,7 +14,6 @@ $HADOOP_PREFIX/sbin/start-dfs.sh
 $HADOOP_PREFIX/sbin/start-yarn.sh
 $ZOO_HOME/bin/zkServer.sh start
 $HBASE_HOME/bin/start-hbase.sh
-$HBASE_HOME/bin/local-regionservers.sh start 1
 
 if [[ $1 == "-d" ]]; then
   while true; do sleep 1000; done
