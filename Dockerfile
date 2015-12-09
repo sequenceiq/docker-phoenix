@@ -2,7 +2,7 @@ FROM sequenceiq/hadoop-docker:2.7.0
 MAINTAINER SequenceIQ
 
 # Zookeeper
-ENV ZOOKEEPER_VERSION 3.4.6
+ENV ZOOKEEPER_VERSION 3.4.7
 RUN curl -s http://mirror.csclub.uwaterloo.ca/apache/zookeeper/zookeeper-$ZOOKEEPER_VERSION/zookeeper-$ZOOKEEPER_VERSION.tar.gz | tar -xz -C /usr/local/
 RUN cd /usr/local && ln -s ./zookeeper-$ZOOKEEPER_VERSION zookeeper
 ENV ZOO_HOME /usr/local/zookeeper
@@ -14,12 +14,20 @@ RUN mkdir /tmp/zookeeper
 ENV HBASE_MAJOR 1.1
 ENV HBASE_MINOR 2
 ENV HBASE_VERSION "${HBASE_MAJOR}.${HBASE_MINOR}"
-RUN curl -s http://apache.mirror.gtcomm.net/hbase/$HBASE_VERSION/hbase-$HBASE_VERSION-bin.tar.gz | tar -xz -C /usr/local/
-RUN cd /usr/local && ln -s ./hbase-$HBASE_VERSION hbase
+RUN	if [ $HBASE_MAJOR == 0.98 ]; then \
+		curl -s http://apache.mirror.gtcomm.net/hbase/$HBASE_VERSION/hbase-$HBASE_VERSION-hadoop2-bin.tar.gz | tar -xz -C /usr/local/ && \
+		cd /usr/local && ln -s ./hbase-$HBASE_VERSION-hadoop2 hbase; \
+	elif [ $HBASE_MAJOR == 1.0 ]; then \
+		curl -s http://apache.mirror.gtcomm.net/hbase/hbase-$HBASE_VERSION/hbase-$HBASE_VERSION-bin.tar.gz | tar -xz -C /usr/local/ && \
+		cd /usr/local && ln -s ./hbase-$HBASE_VERSION hbase; \
+	else \
+		curl -s http://apache.mirror.gtcomm.net/hbase/$HBASE_VERSION/hbase-$HBASE_VERSION-bin.tar.gz | tar -xz -C /usr/local/ && \
+		cd /usr/local && ln -s ./hbase-$HBASE_VERSION hbase; \
+	fi
 ENV HBASE_HOME /usr/local/hbase
 ENV PATH $PATH:$HBASE_HOME/bin
 
-# phoenix
+# Phoenix
 ENV PHOENIX_VERSION 4.6.0
 RUN curl -s http://apache.mirror.vexxhost.com/phoenix/phoenix-$PHOENIX_VERSION-HBase-$HBASE_MAJOR/bin/phoenix-$PHOENIX_VERSION-HBase-$HBASE_MAJOR-bin.tar.gz | tar -xz -C /usr/local/
 RUN cd /usr/local && ln -s ./phoenix-$PHOENIX_VERSION-HBase-$HBASE_MAJOR-bin phoenix

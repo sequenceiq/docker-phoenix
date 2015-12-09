@@ -8,12 +8,13 @@ Apache Phoenix is a SQL skin over HBase delivered as a client-embedded JDBC driv
 
 ###Versions
 Apache Hadoop - 2.7.0  
-Apache HBase - 1.1.2
+Apache HBase - 0.98.x, 1.0.x, 1.1.x
 Apache Phoenix - 4.4.0+
 
 ###Launch
-`docker run -it sequenceiq/phoenix:v4.1onHbase-0.98.5` -> to normal launch
+`docker run -it sequenceiq/phoenix` -> to normal launch
+`queryserver.py` -> to launch the Phoenix Avatica queryserver to handle REST requests over wire protocol
+or `queryserver.py start` -> to launch in the background
 
 ###Alternative launch
-`docker run -it sequenceiq/phoenix:v4.1onHbase-0.98.5 /etc/bootstrap-phoenix.sh -sqlline` -> to launch directly the sqlline for phoenix
-
+`docker run -it sequenceiq/phoenix /etc/bootstrap-phoenix.sh -sqlline` -> to launch directly the sqlline for phoenix
