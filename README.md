@@ -1,5 +1,7 @@
-docker-phoenix
+Apache Phoenix on Docker
 ==============
+[![DockerPulls](https://img.shields.io/docker/pulls/sequenceiq/phoenix.svg)](https://registry.hub.docker.com/u/sequenceiq/phoenix/)
+[![DockerStars](https://img.shields.io/docker/stars/sequenceiq/phoenix.svg)](https://registry.hub.docker.com/u/sequenceiq/phoenix/)
 
 A Docker image to quick start [Apache Phoenix](http://phoenix.apache.org/) on [Apache HBase](https://hbase.apache.org/)
 to provide an SQL interface.
