@@ -15,7 +15,9 @@ Apache Phoenix - 4.4.0+
 
 ###Launch
 `docker run -it sequenceiq/phoenix` -> to normal launch
+
 `queryserver.py` -> to launch the Phoenix Avatica queryserver to handle REST requests over wire protocol
+
 or `queryserver.py start` -> to launch in the background
 
 ###Alternative launch
