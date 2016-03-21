@@ -25,3 +25,8 @@ fi
 if [[ $1 == "-sqlline" ]]; then
   /usr/local/phoenix/hadoop2/bin/sqlline.py localhost
 fi
+
+if [[ $1 == "-qs" ]]; then
+  echo "Starting queryserver"
+  /usr/local/phoenix/bin/queryserver.py
+fi
